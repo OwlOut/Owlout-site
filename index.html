@@ -116,8 +116,14 @@
       <h2>Accès anticipé</h2>
       <p>Soyez parmi les premiers à tester Owlout</p>
 
-      <input type="email" placeholder="Votre email">
-      <button>S'inscrire</button>
+      <form id="signup-form" onsubmit="handleSignup(event)">
+        <label for="email-input" style="display:none">Votre email</label>
+        <input id="email-input" type="email" placeholder="Votre email" required>
+        <button type="submit">S'inscrire</button>
+      </form>
+      <p id="signup-message" style="display:none; color:#6366f1; font-weight:bold;">
+        ✅ Merci ! Vous serez parmi les premiers avertis.
+      </p>
     </div>
 
     <footer>
@@ -125,6 +131,13 @@
     </footer>
 
   </div>
+  <script>
+    function handleSignup(event) {
+      event.preventDefault();
+      document.getElementById('signup-form').style.display = 'none';
+      document.getElementById('signup-message').style.display = 'block';
+    }
+  </script>
 
 </body>
 </html>
